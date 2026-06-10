@@ -1,0 +1,250 @@
+﻿<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Landing page model pentru Taberele Evreiești 2026 organizate de JCC București.">
+    <title>Tabere JCC 2026</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header jcc-official-header">
+      <a class="jcc-official-hero" href="https://www.jcc.ro/" aria-label="JCC București">
+        <img src="assets/jcc-header.jpg" alt="JCC București și Shalom România">
+      </a>
+      <div class="jcc-official-nav-row">
+        <nav class="main-nav jcc-official-nav" aria-label="Navigație principală JCC">
+          <a href="https://www.jcc.ro/">Home</a>
+          <a href="https://www.jcc.ro/cursuri-25-26/">Cursuri ’25-’26</a>
+          <a class="current" href="#top">Tabere 2026</a>
+          <a href="https://www.jcc.ro/cardul-de-membru/">Cardul de membru</a>
+          <a href="https://www.jcc.ro/despre-jcc/">Despre JCC</a>
+          <a href="https://www.jcc.ro/parteneri/">Parteneri</a>
+          <a href="https://www.jcc.ro/contact/">Contact</a>
+        </nav>
+        <form class="jcc-search" action="https://www.jcc.ro/" method="get" role="search">
+          <label class="sr-only" for="jccSearch">Caută pe JCC.ro</label>
+          <input id="jccSearch" name="s" type="search" aria-label="Caută pe JCC.ro">
+          <button type="submit">Search</button>
+        </form>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <img class="hero-image" src="assets/hero-camp.png" alt="Tabără de vară în pădure cu familii, copii și corturi">
+        <div class="hero-overlay"></div>
+        <div class="hero-layout">
+          <div class="hero-left">
+            <div class="hero-content">
+              <p class="eyebrow">Centrul Comunitar Evreiesc București</p>
+              <h1 id="hero-title">Taberele evreiești 2026</h1>
+              <p>
+                Alege tabăra potrivită, vezi rapid perioada în calendar și intră în pagina dedicată pentru înscriere.
+              </p>
+              <div class="hero-actions">
+                <a class="button primary" href="#tabere">Explorează taberele</a>
+              </div>
+            </div>
+            <form class="quick-search" aria-label="Selecție rapidă tabără">
+              <label>
+                Tip tabără
+                <select id="quickCategory">
+                  <option value="all">Toate taberele</option>
+                  <option value="familii">Familii</option>
+                  <option value="copii">Copii</option>
+                  <option value="tineri">Tineri</option>
+                  <option value="adulti">Adulți</option>
+                </select>
+              </label>
+              <label>
+                Perioada
+                <select id="quickSeason">
+                  <option value="all">Tot anul</option>
+                  <option value="iarna">Iarnă</option>
+                  <option value="vara">Vară</option>
+                </select>
+              </label>
+              <button class="button primary" type="button" id="quickFilterButton">Caută</button>
+            </form>
+          </div>
+
+          <aside class="hero-calendar" id="calendar" aria-labelledby="calendar-title">
+            <div class="calendar-app-top">
+              <h2 id="calendar-title">Calendar tabere 2026</h2>
+            </div>
+            <div class="calendar-app-body">
+              <aside class="calendar-sidebar">
+                <div class="people-list">
+                  <h3>Tabere</h3>
+                  <div class="calendar-legend" id="calendarLegend" aria-label="Legenda tabere"></div>
+                </div>
+              </aside>
+              <div class="calendar-main-panel">
+                <div class="calendar-slider-head">
+                  <button class="calendar-nav-button" type="button" id="prevMonth" aria-label="Luna anterioară">&lt;</button>
+                  <h3 id="calendarMonthTitle">Iulie 2026</h3>
+                  <button class="calendar-nav-button" type="button" id="nextMonth" aria-label="Luna următoare">&gt;</button>
+                </div>
+                <div class="single-calendar" id="singleCalendar" aria-live="polite"></div>
+                <div class="mini-month">
+                  <p>2026</p>
+                  <div class="mini-grid" id="miniCalendar"></div>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section camps-section" id="tabere" aria-labelledby="camps-title">
+        <div class="section-heading split">
+          <div>
+            <p class="eyebrow">Galerie tabere</p>
+            <h2 id="camps-title">Alege experiența potrivită</h2>
+          </div>
+          <div class="filter-bar" aria-label="Filtrare tabere">
+            <button class="filter-chip active" type="button" data-filter="all">Toate</button>
+            <button class="filter-chip" type="button" data-filter="familii">Familii</button>
+            <button class="filter-chip" type="button" data-filter="copii">Copii</button>
+            <button class="filter-chip" type="button" data-filter="tineri">Tineri</button>
+            <button class="filter-chip" type="button" data-filter="adulti">Adulți</button>
+          </div>
+        </div>
+        <section class="payment-calculator" id="contributie" aria-labelledby="payment-calculator-title">
+          <div class="calculator-top">
+            <div>
+              <p class="eyebrow">Calculator contribuție tabără</p>
+              <h3 id="payment-calculator-title">Achită contribuția aici</h3>
+            </div>
+            <strong id="calculatorTotal">0 lei</strong>
+          </div>
+
+          <form class="calculator-form" id="paymentCalculator">
+            <div class="calculator-field calculator-camp-field">
+              <span>Tabăra pentru care achit contribuția</span>
+              <div class="calculator-camp-picker" id="calculatorCampPicker">
+                <button class="calculator-camp-trigger" id="calculatorCampButton" type="button" aria-haspopup="listbox" aria-expanded="false">
+                  <span class="camp-color-dot" aria-hidden="true"></span>
+                  <span id="calculatorCampButtonText">Alege tabăra</span>
+                  <span class="calculator-caret" aria-hidden="true">⌄</span>
+                </button>
+                <div class="calculator-camp-menu" id="calculatorCampList" role="listbox"></div>
+                <input id="calculatorCamp" type="hidden" value="">
+              </div>
+            </div>
+
+            <div class="calculator-qty-grid" id="calculatorQuantities"></div>
+
+            <label class="calculator-field">
+              <span>Transport</span>
+              <div class="calculator-select-picker" id="calculatorTransportPicker">
+                <button class="calculator-select-trigger" id="calculatorTransportButton" type="button" aria-haspopup="listbox" aria-expanded="false">
+                  <span id="calculatorTransportButtonText">Fără transport</span>
+                  <span class="calculator-caret" aria-hidden="true">⌄</span>
+                </button>
+                <div class="calculator-select-menu" id="calculatorTransportList" role="listbox">
+                  <button class="calculator-select-option" type="button" role="option" data-calculator-transport="none">Fără transport</button>
+                  <button class="calculator-select-option" type="button" role="option" data-calculator-transport="dus">Doar dus</button>
+                  <button class="calculator-select-option" type="button" role="option" data-calculator-transport="intors">Doar întors</button>
+                  <button class="calculator-select-option" type="button" role="option" data-calculator-transport="dus-intors">Dus-întors</button>
+                </div>
+                <input id="calculatorTransportMode" type="hidden" value="none">
+              </div>
+            </label>
+
+            <div class="calculator-stepper calculator-transport-stepper" data-calculator-stepper="transport">
+              <span>Persoane pentru transport</span>
+              <button type="button" data-calculator-decrement="transport" aria-label="Scade persoane pentru transport">−</button>
+              <output id="calculatorTransportQty" data-calculator-qty="transport">0</output>
+              <button type="button" data-calculator-increment="transport" aria-label="Crește persoane pentru transport">+</button>
+            </div>
+
+            <div class="calculator-summary" aria-live="polite">
+              <div>
+                <span>Participare</span>
+                <strong id="calculatorCampSubtotal">0 lei</strong>
+              </div>
+              <div>
+                <span>Transport</span>
+                <strong id="calculatorTransportSubtotal">0 lei</strong>
+              </div>
+            </div>
+
+            <a class="button primary calculator-pay-button" id="calculatorPayLink" href="#tabere">Continuă la achitarea contribuției</a>
+          </form>
+        </section>
+        <div class="camp-grid" id="campGrid"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div>
+          <a class="brand footer-brand brand-logo-link" href="#top" aria-label="JCC București - Centrul Evreiesc">
+            <img class="brand-logo" src="assets/logo-jcc-bucuresti.png" alt="JCC București - Centrul Evreiesc">
+          </a>
+          <p>Landing page pentru taberele evreiești 2026, cu calendar, pagini dedicate și contribuții test.</p>
+        </div>
+        <div>
+          <h3>Navigație</h3>
+          <a href="#top">Hero</a>
+          <a href="#calendar">Calendar</a>
+          <a href="#tabere">Tabere</a>
+        </div>
+        <div>
+          <h3>Contact</h3>
+          <p>Recepția JCC</p>
+          <a href="tel:+40213202608">021.320.26.08</a>
+          <a href="http://www.jcc.ro/contact">Contact JCC</a>
+        </div>
+        <div>
+          <h3>Organizator</h3>
+          <p>Centrul Comunitar Evreiesc București</p>
+          <a href="http://www.jcc.ro">www.jcc.ro</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 JCC București</span>
+        <span>Model HTML5 pentru secțiunea de tabere</span>
+      </div>
+    </footer>
+
+    <nav class="mobile-app-nav" aria-label="Navigație mobilă">
+      <a class="mobile-nav-item is-active" href="#top" aria-label="Acasă">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 10.8 12 3l9 7.8v9.7a1 1 0 0 1-1 1h-5.2v-6.3H9.2v6.3H4a1 1 0 0 1-1-1z"></path>
+        </svg>
+        <span>Home</span>
+      </a>
+      <a class="mobile-nav-item" href="#contributie" aria-label="Contribuție">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 7.5h12a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2z"></path>
+          <path d="M17 12.7h3"></path>
+          <path d="M7 7.5V6a2 2 0 0 1 2-2h7"></path>
+        </svg>
+        <span>Contribuție</span>
+      </a>
+      <a class="mobile-nav-item" href="#tabere" aria-label="Tabere">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 19h16L12 4z"></path>
+          <path d="M12 4v15"></path>
+          <path d="M8.5 19 12 11l3.5 8"></path>
+        </svg>
+        <span>Tabere</span>
+      </a>
+      <a class="mobile-nav-item" href="#calendar" aria-label="Calendar 2026">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M5 5.8h14a1.5 1.5 0 0 1 1.5 1.5v11.2A1.5 1.5 0 0 1 19 20H5a1.5 1.5 0 0 1-1.5-1.5V7.3A1.5 1.5 0 0 1 5 5.8z"></path>
+          <path d="M8 4v4"></path>
+          <path d="M16 4v4"></path>
+          <path d="M3.5 10h17"></path>
+        </svg>
+        <span>Calendar</span>
+      </a>
+    </nav>
+
+    <script src="app.js"></script>
+  </body>
+</html>
+
